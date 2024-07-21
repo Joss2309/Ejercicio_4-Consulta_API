@@ -1,0 +1,41 @@
+---
+title: Visualización de datos con Seaborn
+author: Joselyn Martínez
+format:  
+    html: 
+    code-fold:true
+    theme: cosmo
+---
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+```
+```{python}
+data = pd.read_excel(r"C:\Users\Usuario\Desktop\Joselyn\Curso Analisis de Datos\Tercer Cuatrimestre\Taller de Programación para analisis de datos II Nayid Vargas\Semana 10\Superstore.xlsx")
+```
+
+```{python}
+data.dtypes
+```
+
+
+#Gráfico Relacional
+```{python}
+g = sns.lmplot(data=data, x="Sales", y="Profit", hue="Category", height=5)
+plt.title("Superstore")
+```
+
+
+#Gráfico Categorico
+```{python}
+```
+
+#Gráfico de Distibución
+```{python}
+sns.boxplot(x="Sales", y="Profit", data=data)
+plt.title("Superstore")
+plt.show()
+```
+
+
