@@ -1,19 +1,19 @@
-import json 
-import requests 
-from requests.auth import HTTPBasicAuth
+# importamos librerias
+import requests
 
-URL = "https://my.sportmonks.com/login"
 
-#Autenticación de crear usurario y contraseña
-email = 'psarias23@gmail.com'
-contraseña = '230991'
+#consumir el recurso de la pagina
+URL = "https://api.lambdatest.com/automation/api/v1/platforms"
 
-#Realizar la consulta GET a la autenticación con REQUESTS
-respuesta = requests.get(URL, auth=HTTPBasicAuth(email, contraseña))
 
+
+# Realizar la solicitud GET a la API 
+respuesta = requests.get(URL)
+
+# Verificar el estado de la solicitud
 if respuesta.status_code == 200:
-    print('Solicitud exitosa')
-    print('Datos:', respuesta.json())
+    print('Su solicitud fue exitosa')
+    print('Datos: ', respuesta.json())
 else:
-    print("Error en la solicitud del recurso. Detalles: \n",
-          respuesta.text)
+    print('Error en la solicitud. Detalles: \n', respuesta.text)
+

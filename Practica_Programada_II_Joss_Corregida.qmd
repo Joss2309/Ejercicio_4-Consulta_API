@@ -1,0 +1,73 @@
+---
+title: Visualización de datos con Seaborn
+author: Joselyn Martínez
+format: 
+  pdf:
+    geometry: margin=1in
+    fontsize: 10pt
+---
+
+## Importación de Librerias ##
+```{python}
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
+```
+
+## Lectura de Archivos ##
+```{python}
+data = pd.read_excel(r"C:\Users\Usuario\Desktop\Joselyn\Curso Analisis de Datos\Tercer Cuatrimestre\Taller de Programación para analisis de datos II Nayid Vargas\Semana 10\Superstore.xlsx")
+```
+
+## Listado del encabezado ##
+```{python}
+data.dtypes
+```
+
+## Gráfico 1 ##
+#Gráfico Categorico
+```{python}
+plt.figure(figsize=(10, 6))
+sns.barplot(x="Category", y="Sales", data=data)
+plt.title("Distribución por categoria del total de ventas")
+plt.show()
+```
+
+## Gráfico 2 ##
+#Gráfico de Relacional
+```{python}
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x="Sales", y="Profit", hue="Category",
+data=data)
+plt.title("Relación entre ganancias total de ventas, por Category")
+plt.show()
+```
+
+## Gráfico 3 ##
+#Gráfico Distribución
+```{python}
+plt.figure(figsize=(10, 6))
+sns.histplot(data=data, x="Category", kde=True)
+plt.title("Distribución de las Categorias")
+plt.show()
+```
+
+## Gráfico de 3.1 mostrando otras variables ##
+#Prueba de gráfico Distribución
+```{python}
+plt.figure(figsize=(10, 6))
+sns.kdeplot(data=data, x="Quantity", hue="Category")
+plt.title("Distribución de las Cantidades por Categoria  ")
+plt.show()
+```
+
+
+
+## Aprendizaje y Desafíos ##
+```{text}
+Durante la creación del codigo al inicio el visual me presento problemas cargando los gráficos,
+no indicaba ni error, sin embargo, volvi a intentar nuevamente la creación de los gráficos,
+y se pudieron generar sin ningun error. No entendí muy claro cual fue el fallo de queno estuviera leyendo, posible hipotesis: 1. El internet no tenia toda la velocidad necesaria,  2. Al no estar
+ingresando el codigo bien se pudo saturar y no dar respuesta, se intentaron varias veces iniicar el kermel., ese fue el desafio mas grande.
+El aprendizaje por srealizarlo por segunda veces, pude notar el beneficio por accesibilidad el listado de las columnos, aprendi el formato de los gráficos. Aprendi ya como generar un GITBASH y poder enviarlo sin necesidad de la guía de apoyo, durante la clase aprendi la lectura de los gráficos  que normalmente se me deficultaba leer o entender
+```
